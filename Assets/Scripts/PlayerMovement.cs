@@ -13,9 +13,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform mainCam;
     Rigidbody rb;
     Animator animator;
+    PlayerAttack playerAttack;
 
     void Awake()
     {
+        playerAttack = GetComponent<PlayerAttack>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
@@ -47,7 +49,14 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, rotationSmooth, 0);
 
         moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
-        rb.MovePosition(rb.position+ moveDirection * finalMovementSpeed * Time.fixedDeltaTime );
+
+
+        float moveSpeedReduction = 1;
+        if(playerAttack.isAttack)
+            {
+                moveSpeedReduction = 8;                
+            }
+        rb.MovePosition(rb.position+ moveDirection * finalMovementSpeed/moveSpeedReduction * Time.fixedDeltaTime );
         }
         
     }

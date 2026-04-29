@@ -6,7 +6,14 @@ public class BaseHealth : MonoBehaviour
 {
     public float curHealth, maxHealth;
     public bool isDead;
+    public ParticleSystem bloodVfx;
+    public AudioClip hitSfx;
+    AudioSource audioSource;
 
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void Start()
     {
         curHealth =maxHealth;
@@ -16,6 +23,8 @@ public class BaseHealth : MonoBehaviour
     {
         if(isDead) return;
         curHealth -= dmgValue;
+        audioSource.PlayOneShot(hitSfx);
+        bloodVfx.Play();
         if(curHealth == 0)OnDead();
         print("on take damage");
     }

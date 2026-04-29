@@ -8,7 +8,8 @@ public class OnIdle : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("attack");
-       animator.applyRootMotion = false;
+        animator.applyRootMotion = false;
+        animator.GetComponent<BaseAttack>().isAttack = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

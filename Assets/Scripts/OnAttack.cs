@@ -8,6 +8,7 @@ public class OnAttack : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
        animator.applyRootMotion = true;
+       animator.GetComponent<BaseAttack>().isAttack = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
