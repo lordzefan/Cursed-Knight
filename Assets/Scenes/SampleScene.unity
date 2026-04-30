@@ -1079,6 +1079,13 @@ MonoBehaviour:
   dmgValue: 0
   targetTags:
   - Enemy
+  cameraShakePreset:
+    impactForce: 1
+    impactDuration: 0.5
+    randomX: {x: 0, y: 0}
+    randomY: {x: 0, y: 0}
+    randomZ: {x: 0, y: 0}
+    impulseShapes: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,6 +2105,13 @@ MonoBehaviour:
   dmgValue: 20
   targetTags:
   - Enemy
+  cameraShakePreset:
+    impactForce: 1
+    impactDuration: 0.5
+    randomX: {x: -1, y: 1}
+    randomY: {x: -1, y: 1}
+    randomZ: {x: -1, y: 1}
+    impulseShapes: 1
 --- !u!1001 &1849594593
 PrefabInstance:
   m_ObjectHideFlags: 0

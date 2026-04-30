@@ -19,11 +19,11 @@ public class BaseHealth : MonoBehaviour
         curHealth =maxHealth;
     }
 
-    public void OnTakeDamage(float dmgValue)
+    public void OnTakeDamage(float dmgValue, CameraShakePreset cameraShakePreset)
     {
         if(isDead) return;
         curHealth -= dmgValue;
-        MainCamera.Instance.CameraShake();
+        MainCamera.Instance.CameraShake(cameraShakePreset);
         audioSource.PlayOneShot(hitSfx);
         bloodVfx.Play();
         if(curHealth == 0)OnDead();

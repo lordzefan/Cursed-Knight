@@ -20,8 +20,12 @@ public class MainCamera : MonoBehaviour
         
     }
 
-    public void CameraShake()
+    public void CameraShake( CameraShakePreset cameraShakePreset)
     {
-        impulseSource.GenerateImpulseWithForce(1);
+        var impulseDefinition = impulseSource.m_ImpulseDefinition;
+        impulseDefinition.m_ImpulseDuration = cameraShakePreset.impactDuration;
+        impulseDefinition.m_ImpulseShape = cameraShakePreset.impulseShapes;
+        impulseSource.m_DefaultVelocity = cameraShakePreset.GetRandomVelocity();
+        impulseSource.GenerateImpulseWithForce(cameraShakePreset.impactForce);
     }
 }
