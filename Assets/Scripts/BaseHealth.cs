@@ -23,6 +23,7 @@ public class BaseHealth : MonoBehaviour
     {
         if(isDead) return;
         curHealth -= dmgValue;
+        MainCamera.Instance.CameraShake();
         audioSource.PlayOneShot(hitSfx);
         bloodVfx.Play();
         if(curHealth == 0)OnDead();
