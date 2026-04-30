@@ -1080,11 +1080,18 @@ MonoBehaviour:
   targetTags:
   - Enemy
   cameraShakePreset:
-    impactForce: 1
-    impactDuration: 0.5
+    impactVelocity: {x: 0, y: 0, z: 0}
     randomX: {x: 0, y: 0}
     randomY: {x: 0, y: 0}
     randomZ: {x: 0, y: 0}
+    impactForce: 1
+    impactDuration: 0.5
+    randomMinX: {x: 0, y: 0}
+    randomMaxX: {x: 0, y: 0}
+    randomMinY: {x: 0, y: 0}
+    randomMaxY: {x: 0, y: 0}
+    randomMinZ: {x: 0, y: 0}
+    randomMaxZ: {x: 0, y: 0}
     impulseShapes: 0
 --- !u!1 &705507993
 GameObject:
@@ -2106,11 +2113,18 @@ MonoBehaviour:
   targetTags:
   - Enemy
   cameraShakePreset:
+    impactVelocity: {x: 0, y: 0, z: 0}
+    randomX: {x: 0, y: 0}
+    randomY: {x: 0, y: 1}
+    randomZ: {x: 0, y: 0}
     impactForce: 1
     impactDuration: 0.5
-    randomX: {x: -1, y: 1}
-    randomY: {x: -1, y: 1}
-    randomZ: {x: -1, y: 1}
+    randomMinX: {x: -1, y: -0.5}
+    randomMaxX: {x: -1, y: -0.5}
+    randomMinY: {x: -1, y: -0.5}
+    randomMaxY: {x: -1, y: -0.5}
+    randomMinZ: {x: -1, y: -0.5}
+    randomMaxZ: {x: -1, y: -0.5}
     impulseShapes: 1
 --- !u!1001 &1849594593
 PrefabInstance:
