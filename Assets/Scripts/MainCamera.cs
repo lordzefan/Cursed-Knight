@@ -20,12 +20,12 @@ public class MainCamera : MonoBehaviour
         
     }
 
-    public void CameraShake( CameraShakePreset cameraShakePreset)
+    public void CameraShake( CameraShakePresetSo cameraShakePresetSo)
     {
         var impulseDefinition = impulseSource.m_ImpulseDefinition;
-        impulseDefinition.m_ImpulseDuration = cameraShakePreset.impactDuration;
-        impulseDefinition.m_ImpulseShape = cameraShakePreset.impulseShapes;
-        impulseSource.m_DefaultVelocity = cameraShakePreset.GetRandomVelocityMinMax();
-        impulseSource.GenerateImpulseWithForce(cameraShakePreset.impactForce);
+        impulseDefinition.m_ImpulseDuration = cameraShakePresetSo.impactDuration;
+        impulseDefinition.m_ImpulseShape = cameraShakePresetSo.impulseShapes;
+        impulseSource.m_DefaultVelocity = cameraShakePresetSo.GetRandomVelocityMinMax();
+        impulseSource.GenerateImpulseWithForce(cameraShakePresetSo.impactForce);
     }
 }

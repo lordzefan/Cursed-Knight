@@ -19,7 +19,7 @@ public class BaseHealth : MonoBehaviour
         curHealth =maxHealth;
     }
 
-    public void OnTakeDamage(float dmgValue, CameraShakePreset cameraShakePreset)
+    public void OnTakeDamage(float dmgValue, CameraShakePresetSo cameraShakePreset)
     {
         if(isDead) return;
         curHealth -= dmgValue;

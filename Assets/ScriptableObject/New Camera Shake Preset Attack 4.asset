@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dfb49d078e3ffe41b83a0d9a0c27341, type: 3}
+  m_Name: New Camera Shake Preset Attack 4
+  m_EditorClassIdentifier: 
+  impactVelocity: {x: 0.94421303, y: 0.9457898, z: 0.7799666}
+  randomX: {x: 0.5, y: 1}
+  randomY: {x: 0.5, y: 1}
+  randomZ: {x: 0.5, y: 1}
+  impactForce: 2
+  impactDuration: 0.8
+  randomMinX: {x: -1, y: -0.5}
+  randomMaxX: {x: 0.5, y: 1}
+  randomMinY: {x: 0.5, y: 1}
+  randomMaxY: {x: 0.5, y: 1}
+  randomMinZ: {x: -1, y: -0.5}
+  randomMaxZ: {x: 0.5, y: 1}
+  impulseShapes: 1
