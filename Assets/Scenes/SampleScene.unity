@@ -1076,10 +1076,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10aad477d43bb0479793cc92991bb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgValue: 0
   targetTags:
   - Enemy
-  cameraShakePresetSo: {fileID: 0}
+  attackSo: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,6 +1949,75 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 677989350}
   m_SourcePrefab: {fileID: 100100000, guid: 3daaaa829c9554541be0d8813042c227, type: 3}
+--- !u!1001 &1497017246
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100138, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_Name
+      value: SK_Karckmahre
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -98.508125
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9441672
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.8984628
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 33fc3f684a9131f4aa1b4d4922e44038, type: 2}
+    - target: {fileID: 9500000, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a148abea686a5d4eb3be1829bd3b4b6, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 047928f9146aeef4c8e40bc4332bb1d3, type: 3}
 --- !u!1001 &1499315676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2096,10 +2164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10aad477d43bb0479793cc92991bb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgValue: 20
   targetTags:
   - Enemy
-  cameraShakePresetSo: {fileID: 11400000, guid: 8aa12cec111cdc14c8099c53d4cac2ef, type: 2}
+  attackSo: {fileID: 0}
 --- !u!1001 &1849594593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2447,3 +2514,4 @@ SceneRoots:
   - {fileID: 80451300}
   - {fileID: 1124483143}
   - {fileID: 606450053}
+  - {fileID: 1497017246}

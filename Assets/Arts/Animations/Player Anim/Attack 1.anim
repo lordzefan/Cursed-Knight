@@ -158784,7 +158784,7 @@ AnimationClip:
   - time: 0
     functionName: OnSetAttackHitBox
     data: 
-    objectReferenceParameter: {fileID: 11400000, guid: 8aa12cec111cdc14c8099c53d4cac2ef, type: 2}
+    objectReferenceParameter: {fileID: 11400000, guid: 8d95b13e0d869b742885f6f52f741fa1, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

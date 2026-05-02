@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f67e652f459724490b907888677623, type: 3}
   m_Name: Attack 3
   m_EditorClassIdentifier: 
-  dmgValue: {x: 20, y: 35}
-  cameraShakePresetSo: {fileID: 11400000, guid: 8aa12cec111cdc14c8099c53d4cac2ef, type: 2}
+  dmgValue: {x: 30, y: 50}
+  cameraShakePresetSo: {fileID: 11400000, guid: 84134da0751493c4fb550485b7e0bdd7, type: 2}
