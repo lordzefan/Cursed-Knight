@@ -161121,6 +161121,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: OnSetAttackHitBox
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 078dd6c5326f49b479bea4cdfd11a3b6, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.23333333
     functionName: PlaySound
     data: 

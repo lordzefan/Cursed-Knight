@@ -20,6 +20,11 @@ public class BaseAttack : MonoBehaviour
         animator.SetTrigger("attack");
     }
 
+    public void OnSetAttackHitBox(AttackSo attackSo)
+    {
+        hitBox.attackSo = attackSo;
+    }
+
     public void OnApplyHitBox()
     {
         hitBox.gameObject.SetActive(true);

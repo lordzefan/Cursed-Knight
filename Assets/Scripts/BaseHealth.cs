@@ -19,15 +19,16 @@ public class BaseHealth : MonoBehaviour
         curHealth =maxHealth;
     }
 
-    public void OnTakeDamage(float dmgValue, CameraShakePresetSo cameraShakePreset)
+    public void OnTakeDamage( AttackSo attackSo)
     {
+        var dmgFinal = Random.Range(attackSo.dmgValue.x, attackSo.dmgValue.y);
         if(isDead) return;
-        curHealth -= dmgValue;
-        MainCamera.Instance.CameraShake(cameraShakePreset);
+        curHealth -= dmgFinal;
+        MainCamera.Instance.CameraShake(attackSo.cameraShakePresetSo);
         audioSource.PlayOneShot(hitSfx);
         bloodVfx.Play();
         if(curHealth == 0)OnDead();
-        print("on take damage");
+        print("on take damage "+ dmgFinal);
     }
 
     public void OnDead()
