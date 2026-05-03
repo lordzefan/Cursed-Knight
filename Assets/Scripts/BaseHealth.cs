@@ -10,7 +10,7 @@ public class BaseHealth : MonoBehaviour
     public AudioClip hitSfx;
     AudioSource audioSource;
 
-    void Awake()
+    protected virtual void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }
@@ -19,7 +19,7 @@ public class BaseHealth : MonoBehaviour
         curHealth =maxHealth;
     }
 
-    public void OnTakeDamage( AttackSo attackSo)
+    public virtual void OnTakeDamage( AttackSo attackSo)
     {
         var dmgFinal = Random.Range(attackSo.dmgValue.x, attackSo.dmgValue.y);
         if(isDead) return;
