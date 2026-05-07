@@ -7,7 +7,7 @@ public class BaseAttack : MonoBehaviour
 
     public HitBox hitBox;
     public bool isAttack;
-    Animator animator;
+   protected Animator animator;
 
     private void Awake()
     {
