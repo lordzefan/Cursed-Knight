@@ -158788,14 +158788,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.35
+  - time: 0.31666666
     functionName: PlaySound
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 10a22df5190347e459067bca653efc6e, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.38333333
+  - time: 0.35
     functionName: OnApplyHitBox
     data: 
     objectReferenceParameter: {fileID: 0}
