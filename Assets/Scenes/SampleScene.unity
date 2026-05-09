@@ -1152,6 +1152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1236204415}
   - {fileID: 1051492576}
   - {fileID: 1134040147}
   - {fileID: 1241639772}
@@ -3947,19 +3948,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 457051996}
     m_Modifications:
     - target: {fileID: 3377603397710249540, guid: 0370d072c24c9c949bd137876e94bb0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -92.729
+      value: 25.483902
       objectReference: {fileID: 0}
     - target: {fileID: 3377603397710249540, guid: 0370d072c24c9c949bd137876e94bb0b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5690191
+      value: -1.369019
       objectReference: {fileID: 0}
     - target: {fileID: 3377603397710249540, guid: 0370d072c24c9c949bd137876e94bb0b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.7
+      value: 34.47
       objectReference: {fileID: 0}
     - target: {fileID: 3377603397710249540, guid: 0370d072c24c9c949bd137876e94bb0b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3967,15 +3968,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377603397710249540, guid: 0370d072c24c9c949bd137876e94bb0b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3377603397710249540, guid: 0370d072c24c9c949bd137876e94bb0b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3377603397710249540, guid: 0370d072c24c9c949bd137876e94bb0b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3377603397710249540, guid: 0370d072c24c9c949bd137876e94bb0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4917,6 +4918,5 @@ SceneRoots:
   - {fileID: 606450053}
   - {fileID: 6911476741134439870}
   - {fileID: 298853122}
-  - {fileID: 5799292566453705083}
   - {fileID: 242067478}
   - {fileID: 457051996}

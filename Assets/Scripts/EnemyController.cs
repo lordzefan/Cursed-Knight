@@ -59,6 +59,12 @@ public class EnemyController : MonoBehaviour
     {
         navMeshAgent.speed = walkSpeed;
         navMeshAgent.destination = target.position;
+
+        if (Vector3.Distance(transform.position, target.position)< 2)
+        {
+            ChangeToWandering();
+            print("change target");
+        }
     }
 
     void ChangeToWandering()
@@ -68,7 +74,13 @@ public class EnemyController : MonoBehaviour
 
     public Transform GetTargetMovement()
     {
-        return parentTargetMovement.GetChild(Random.Range(0, parentTargetMovement.childCount));
+        Transform nextTarget;
+        do
+        {
+            nextTarget = parentTargetMovement.GetChild(Random.Range(0, parentTargetMovement.childCount));
+        } while (target == nextTarget);
+
+        return nextTarget;
     }
 
     void OnAttack()
