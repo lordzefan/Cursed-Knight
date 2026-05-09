@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent navMeshAgent;
     Animator  animator;
     public float walkSpeed, runSpeed;
+    public Transform parentTargetMovement;
 
     void Awake()
     {
@@ -38,6 +39,15 @@ public class EnemyController : MonoBehaviour
                 OnAttack();
                 break;
         }
+        DebugTest();
+    }
+
+    void DebugTest()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            ChangeToWandering();
+        }
     }
 
     void OnIdle()
@@ -49,6 +59,16 @@ public class EnemyController : MonoBehaviour
     {
         navMeshAgent.speed = walkSpeed;
         navMeshAgent.destination = target.position;
+    }
+
+    void ChangeToWandering()
+    {
+        target = GetTargetMovement();
+    }
+
+    public Transform GetTargetMovement()
+    {
+        return parentTargetMovement.GetChild(Random.Range(0, parentTargetMovement.childCount));
     }
 
     void OnAttack()
