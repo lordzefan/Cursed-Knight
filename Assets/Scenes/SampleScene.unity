@@ -3353,6 +3353,8 @@ MonoBehaviour:
   attackCooldownDuration: 0
   attackCooldownDurationNeed: 0
   randomAttactCooldownDuration: {x: 1.5, y: 3}
+  distanceToStopAttack: 20
+  distanceToTarget: 0
 --- !u!195 &1504337677
 NavMeshAgent:
   m_ObjectHideFlags: 0

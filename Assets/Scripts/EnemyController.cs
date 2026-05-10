@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour
 
     public float attackRange, attackCooldownDuration, attackCooldownDurationNeed;
     public Vector2 randomAttactCooldownDuration;
+    public float distanceToStopAttack;
+    public float distanceToTarget;
 
     void Awake()
     {
@@ -81,6 +83,7 @@ public class EnemyController : MonoBehaviour
 
     void ChangeToIdle()
     {
+        navMeshAgent.speed = 0;
         idleDuration = 0;
         idleDurationNeed = Random.Range(randomIdleDuration.x, randomIdleDuration.y);
         aiState = AiState.IDLE;
@@ -90,8 +93,9 @@ public class EnemyController : MonoBehaviour
     {
         navMeshAgent.speed = walkSpeed;
         navMeshAgent.destination = target.position;
+        distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-        if (Vector3.Distance(transform.position, target.position)< 2)
+        if (distanceToTarget < 2)
         {
             ChangeToIdle();
             print("change target");
@@ -120,8 +124,9 @@ public class EnemyController : MonoBehaviour
     {
         attackCooldownDuration += Time.deltaTime;
         navMeshAgent.destination = target.position;
+        distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-        if (Vector3.Distance(transform.position, target.position)< attackRange )
+        if (distanceToTarget < attackRange )
         {
             navMeshAgent.speed = 0;
             if (attackCooldownDuration >= attackCooldownDurationNeed)
@@ -135,6 +140,13 @@ public class EnemyController : MonoBehaviour
         {
             navMeshAgent.speed = runSpeed;
         }
+        
+        if (distanceToTarget > distanceToStopAttack)
+        {
+            ChangeToIdle();
+        }
+
+        
     }
 
     void ChangeToAttack()
