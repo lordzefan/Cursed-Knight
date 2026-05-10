@@ -868,6 +868,18 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &396503313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396503296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a314263526c57084a9f3786e31284c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &408339122
 GameObject:
   m_ObjectHideFlags: 3
@@ -2714,6 +2726,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100128, guid: c8ad62c61a23cb14bb373d286e845b82, type: 3}
       insertIndex: -1
       addedObject: {fileID: 396503311}
+    - targetCorrespondingSourceObject: {fileID: 100128, guid: c8ad62c61a23cb14bb373d286e845b82, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 396503313}
   m_SourcePrefab: {fileID: 100100000, guid: c8ad62c61a23cb14bb373d286e845b82, type: 3}
 --- !u!4 &1147857084 stripped
 Transform:
@@ -3335,6 +3350,7 @@ MonoBehaviour:
   idleDuration: 0
   minIdleDuration: 1
   maxIdleDuration: 3
+  attackRange: 3
 --- !u!195 &1504337677
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     public Transform parentTargetMovement;
     public float idleDuration, minIdleDuration, maxIdleDuration;
     float  idleDurationNeed;
+    public float attackRange;
 
     void Awake()
     {
@@ -50,6 +51,10 @@ public class EnemyController : MonoBehaviour
         {
             ChangeToWandering();
         }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            ChangeToAttack();
+        }
     }
 
     void OnIdle()
@@ -61,6 +66,7 @@ public class EnemyController : MonoBehaviour
             ChangeToWandering();
             print("cange to wandering");
         }
+        
     }
 
     void ChangeToIdle()
@@ -103,5 +109,17 @@ public class EnemyController : MonoBehaviour
     void OnAttack()
     {
         navMeshAgent.speed = runSpeed;
+        navMeshAgent.destination = target.position;
+
+        if (Vector3.Distance(transform.position, target.position)< attackRange )
+        {
+            animator.CrossFade("Attack", 0.1f);
+        }
+    }
+
+    void ChangeToAttack()
+    {
+        target = PlayerManager.Instance.transform;
+        aiState = AiState.ATTACKING;
     }
 }
