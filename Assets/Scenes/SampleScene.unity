@@ -849,6 +849,9 @@ MonoBehaviour:
   onChangeHealth:
     m_PersistentCalls:
       m_Calls: []
+  onGettingAttackFromAttacker:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &396503311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,6 +985,9 @@ MonoBehaviour:
   bloodVfx: {fileID: 1842190364}
   hitSfx: {fileID: 8300000, guid: 61571e7d505bdad4fa26fa5c78732b32, type: 3}
   onChangeHealth:
+    m_PersistentCalls:
+      m_Calls: []
+  onGettingAttackFromAttacker:
     m_PersistentCalls:
       m_Calls: []
 --- !u!136 &454432554
@@ -1700,6 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10aad477d43bb0479793cc92991bb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacker: {fileID: 0}
   targetTags:
   - Enemy
   attackSo: {fileID: 0}
@@ -3010,7 +3017,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335782483}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3416,6 +3423,21 @@ MonoBehaviour:
   onChangeHealth:
     m_PersistentCalls:
       m_Calls: []
+  onGettingAttackFromAttacker:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1504337676}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: OnGettingAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   hpBar: {fileID: 658632248}
 --- !u!4 &1504337670 stripped
 Transform:

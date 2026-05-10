@@ -122,6 +122,10 @@ public class EnemyController : MonoBehaviour
 
     void OnAttack()
     {
+        var targetLookAt = target.position;
+        targetLookAt.y = transform.position.y;
+        transform.LookAt(targetLookAt);
+        
         attackCooldownDuration += Time.deltaTime;
         navMeshAgent.destination = target.position;
         distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -153,5 +157,13 @@ public class EnemyController : MonoBehaviour
     {
         target = PlayerManager.Instance.transform;
         aiState = AiState.ATTACKING;
+    }
+
+    public void OnGettingAttack(BaseAttack baseAttack)
+    {
+        if (baseAttack.transform.CompareTag("Player"))
+        {
+            ChangeToAttack();
+        }
     }
 }

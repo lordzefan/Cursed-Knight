@@ -10,9 +10,9 @@ public class PlayerHealth : BaseHealth
         base.Awake();
         animator = GetComponent<Animator>();
     }
-    public override void OnTakeDamage(AttackSo attackSo)
+    public override void OnTakeDamage(AttackSo attackSo, BaseAttack attacker)
     {
-        base.OnTakeDamage(attackSo);
+        base.OnTakeDamage(attackSo, attacker);
         animator.Play("Hit", 1 ,0);
     }
 }

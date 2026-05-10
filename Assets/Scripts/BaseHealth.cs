@@ -20,6 +20,7 @@ public class BaseHealth : MonoBehaviour
     public AudioClip hitSfx;
     AudioSource audioSource;
     public UnityEvent<float, float> onChangeHealth;
+    public UnityEvent<BaseAttack> onGettingAttackFromAttacker;
 
     protected virtual void Awake()
     {
@@ -30,7 +31,7 @@ public class BaseHealth : MonoBehaviour
         CurHealth =maxHealth;
     }
 
-    public virtual void OnTakeDamage( AttackSo attackSo)
+    public virtual void OnTakeDamage( AttackSo attackSo, BaseAttack attacker)
     {
         var dmgFinal = Random.Range(attackSo.dmgValue.x, attackSo.dmgValue.y);
         if(isDead) return;
@@ -39,6 +40,8 @@ public class BaseHealth : MonoBehaviour
         MainCamera.Instance.CameraShake(attackSo.cameraShakePresetSo);
         audioSource.PlayOneShot(hitSfx);
         bloodVfx.Play();
+
+        onGettingAttackFromAttacker?.Invoke(attacker);
         if(CurHealth == 0)OnDead();
         print("on take damage "+ dmgFinal);
     }
