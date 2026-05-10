@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
     Animator  animator;
     public float walkSpeed, runSpeed;
     public Transform parentTargetMovement;
+    public float idleDuration, minIdleDuration, maxIdleDuration;
+    float  idleDurationNeed;
 
     void Awake()
     {
@@ -52,7 +54,20 @@ public class EnemyController : MonoBehaviour
 
     void OnIdle()
     {
-        
+        idleDuration += Time.deltaTime;
+
+        if (idleDuration > idleDurationNeed)
+        {
+            ChangeToWandering();
+            print("cange to wandering");
+        }
+    }
+
+    void ChangeToIdle()
+    {
+        idleDuration = 0;
+        idleDurationNeed = Random.Range(minIdleDuration, maxIdleDuration);
+        aiState = AiState.IDLE;
     }
 
     void OnWandering()
@@ -62,7 +77,7 @@ public class EnemyController : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.position)< 2)
         {
-            ChangeToWandering();
+            ChangeToIdle();
             print("change target");
         }
     }
@@ -70,6 +85,8 @@ public class EnemyController : MonoBehaviour
     void ChangeToWandering()
     {
         target = GetTargetMovement();
+        aiState = AiState.WANDERING;
+        
     }
 
     public Transform GetTargetMovement()

@@ -3327,11 +3327,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d41204baf4ac44f91e97f818b907a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiState: 1
+  aiState: 0
   target: {fileID: 1236204415}
   walkSpeed: 2
   runSpeed: 4
   parentTargetMovement: {fileID: 457051996}
+  idleDuration: 0
+  minIdleDuration: 1
+  maxIdleDuration: 3
 --- !u!195 &1504337677
 NavMeshAgent:
   m_ObjectHideFlags: 0
