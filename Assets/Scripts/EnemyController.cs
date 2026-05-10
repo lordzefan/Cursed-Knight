@@ -17,14 +17,24 @@ public class EnemyController : MonoBehaviour
     Animator  animator;
     public float walkSpeed, runSpeed;
     public Transform parentTargetMovement;
-    public float idleDuration, minIdleDuration, maxIdleDuration;
+
+    public float idleDuration;
     float  idleDurationNeed;
-    public float attackRange;
+    public Vector2 randomIdleDuration;
+
+    public float attackRange, attackCooldownDuration, attackCooldownDurationNeed;
+    public Vector2 randomAttactCooldownDuration;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+    }
+
+    void Start()
+    {
+        idleDurationNeed = Random.Range(randomIdleDuration.x, randomIdleDuration.y);
+        attackCooldownDurationNeed = Random.Range(randomAttactCooldownDuration.x, randomAttactCooldownDuration.y);
     }
 
     private void Update()
@@ -72,7 +82,7 @@ public class EnemyController : MonoBehaviour
     void ChangeToIdle()
     {
         idleDuration = 0;
-        idleDurationNeed = Random.Range(minIdleDuration, maxIdleDuration);
+        idleDurationNeed = Random.Range(randomIdleDuration.x, randomIdleDuration.y);
         aiState = AiState.IDLE;
     }
 
@@ -108,12 +118,22 @@ public class EnemyController : MonoBehaviour
 
     void OnAttack()
     {
-        navMeshAgent.speed = runSpeed;
+        attackCooldownDuration += Time.deltaTime;
         navMeshAgent.destination = target.position;
 
         if (Vector3.Distance(transform.position, target.position)< attackRange )
         {
-            animator.CrossFade("Attack", 0.1f);
+            navMeshAgent.speed = 0;
+            if (attackCooldownDuration >= attackCooldownDurationNeed)
+            {
+                 animator.CrossFade("Attack", 0.1f);
+                 attackCooldownDurationNeed = Random.Range(randomAttactCooldownDuration.x, randomAttactCooldownDuration.y);
+                 attackCooldownDuration = 0;
+            }
+           
+        }else
+        {
+            navMeshAgent.speed = runSpeed;
         }
     }
 
