@@ -149,7 +149,7 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    void ChangeToAttack()
+    public void ChangeToAttack()
     {
         target = PlayerManager.Instance.transform;
         aiState = AiState.ATTACKING;
