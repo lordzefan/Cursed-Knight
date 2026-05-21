@@ -14,9 +14,11 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     Animator animator;
     PlayerAttack playerAttack;
+    PlayerHealth playerHealth;
 
     void Awake()
     {
+        playerHealth = GetComponent<PlayerHealth>();
         playerAttack = GetComponent<PlayerAttack>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(playerHealth.isDead) return;
        Movement();  
     }
 

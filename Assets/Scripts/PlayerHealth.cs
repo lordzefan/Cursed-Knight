@@ -12,7 +12,22 @@ public class PlayerHealth : BaseHealth
     }
     public override void OnTakeDamage(AttackSo attackSo, BaseAttack attacker)
     {
+        if(isDead) return;
         base.OnTakeDamage(attackSo, attacker);
-        animator.Play("Hit", 1 ,0);
+        if (curHealth <= 0)
+        {
+            OnDead();
+        }else
+        {
+            animator.Play("Hit", 1 ,0);
+        }
+    }
+
+    public override void OnDead()
+    {
+        if(isDead) return;
+        base.OnDead();
+        GameManager.Instance.gameOver = true;
+        animator.CrossFade("Dead", 0.1f);
     }
 }

@@ -46,7 +46,7 @@ public class BaseHealth : MonoBehaviour
         print("on take damage "+ dmgFinal);
     }
 
-    public void OnDead()
+    public virtual void OnDead()
     {
        isDead = true; 
        print("enemy is dead");

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool cursorEnable;
+    public bool gameOver;
     void Awake()
     {
         Instance = this;
@@ -21,6 +23,14 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             EnableCursor(!cursorEnable);
+        }
+    }
+
+    public void RestartGame()
+    {
+        if(gameOver)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
