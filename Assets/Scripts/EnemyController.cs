@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
     public Transform parentTargetMovement;
 
     public float idleDuration;
-    float  idleDurationNeed;
+    float  idleDurationNeed = 2;
     public Vector2 randomIdleDuration;
 
     public float attackRange, attackCooldownDuration, attackCooldownDurationNeed;
@@ -67,6 +67,11 @@ public class EnemyController : MonoBehaviour
         {
             ChangeToAttack();
         }
+    }
+
+    public void Init(Transform parentTargetMovement)
+    {
+        this.parentTargetMovement = parentTargetMovement;
     }
 
     void OnIdle()
