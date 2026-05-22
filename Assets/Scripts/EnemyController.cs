@@ -15,11 +15,12 @@ public class EnemyController : MonoBehaviour
     public Transform target;
     NavMeshAgent navMeshAgent;
     Animator  animator;
+    EnemyHealth enemyHealth;
     public float walkSpeed, runSpeed;
     public Transform parentTargetMovement;
 
     public float idleDuration;
-    float  idleDurationNeed = 2;
+    float  idleDurationNeed ;
     public Vector2 randomIdleDuration;
 
     public float attackRange, attackCooldownDuration, attackCooldownDurationNeed;
@@ -31,6 +32,7 @@ public class EnemyController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     void Start()
@@ -41,6 +43,8 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if(enemyHealth.isDead) return;
+
         animator.SetFloat("Movement", navMeshAgent.velocity.magnitude, 0.1f, Time.deltaTime );
         switch (aiState)
         {
@@ -76,6 +80,7 @@ public class EnemyController : MonoBehaviour
 
     void OnIdle()
     {
+        enemyHealth.EnableEnemyCanva(false);
         idleDuration += Time.deltaTime;
 
         if (idleDuration > idleDurationNeed)
@@ -141,8 +146,7 @@ public class EnemyController : MonoBehaviour
             if (attackCooldownDuration >= attackCooldownDurationNeed)
             {
                  animator.CrossFade("Attack", 0.1f);
-                 attackCooldownDurationNeed = Random.Range(randomAttactCooldownDuration.x, randomAttactCooldownDuration.y);
-                 attackCooldownDuration = 0;
+                 ChangeAttackCooldown();
             }
            
         }else
@@ -160,8 +164,10 @@ public class EnemyController : MonoBehaviour
 
     public void ChangeToAttack()
     {
+        // ChangeAttackCooldown();
         target = PlayerManager.Instance.transform;
         aiState = AiState.ATTACKING;
+        enemyHealth.EnableEnemyCanva(true);
     }
 
     public void OnGettingAttack(BaseAttack baseAttack)
@@ -170,5 +176,11 @@ public class EnemyController : MonoBehaviour
         {
             ChangeToAttack();
         }
+    }
+
+    void ChangeAttackCooldown()
+    {
+        attackCooldownDurationNeed = Random.Range(randomAttactCooldownDuration.x, randomAttactCooldownDuration.y);
+        attackCooldownDuration = 0; 
     }
 }

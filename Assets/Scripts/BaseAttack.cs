@@ -9,7 +9,7 @@ public class BaseAttack : MonoBehaviour
     public bool isAttack;
    protected Animator animator;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
         hitBox.gameObject.SetActive(false);

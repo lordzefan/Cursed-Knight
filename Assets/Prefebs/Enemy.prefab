@@ -1693,7 +1693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curHealth: 0
-  maxHealth: 1000
+  maxHealth: 100
   isDead: 0
   bloodVfx: {fileID: 4184419930354049725}
   hitSfx: {fileID: 8300000, guid: 61571e7d505bdad4fa26fa5c78732b32, type: 3}
@@ -1716,6 +1716,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   hpBar: {fileID: 3785940756153954043}
+  enemyCanvas: {fileID: 5314577803345042641}
 --- !u!114 &5927091987069062981
 MonoBehaviour:
   m_ObjectHideFlags: 0

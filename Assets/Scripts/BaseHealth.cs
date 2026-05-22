@@ -26,7 +26,7 @@ public class BaseHealth : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
-    void Start()
+    protected virtual void Start()
     {
         CurHealth =maxHealth;
     }

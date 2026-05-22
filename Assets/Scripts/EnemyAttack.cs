@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class EnemyAttack : BaseAttack
 {
-    private void Update()
+    EnemyHealth enemyHealth;
+
+    protected override void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            DoAttack();
-        }
+        base.Awake();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     public override void DoAttack()
     {
+        if(enemyHealth.isDead) return;
         animator.Play("Attack");
         print("melakukan attack");
     }
