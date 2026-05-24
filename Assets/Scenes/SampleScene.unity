@@ -904,6 +904,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBlocking: 0
+  isPerfectParry: 0
+  perfectParryDuration: 0
+  perfectParryLimit: 0.2
 --- !u!1 &408339122
 GameObject:
   m_ObjectHideFlags: 3
@@ -1536,6 +1539,7 @@ MonoBehaviour:
   targetTags:
   - Enemy
   attackSo: {fileID: 0}
+  attackTarget: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

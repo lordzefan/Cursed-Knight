@@ -5,36 +5,43 @@ using UnityEngine;
 public class PlayerBlok : MonoBehaviour
 {
     Animator animator;
-    public bool isBlocking;
+    public bool isBlocking, isPerfectParry;
+    public float perfectParryDuration, perfectParryLimit;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
+        PerfectParryHandler();
         if (Input.GetMouseButtonDown(1))
         {
+            isPerfectParry = true;
+            perfectParryDuration = 0;
             isBlocking = true;
             animator.SetBool("Block", true);
         }
 
         if (Input.GetMouseButtonUp(1))
         {
+            isPerfectParry = false;
             isBlocking = false;
             animator.SetBool("Block", false);
         }
     }
 
-    void StartBlocking()
+    void PerfectParryHandler()
     {
-        
+        if (isPerfectParry)
+        {
+            perfectParryDuration += Time.deltaTime;
+            if(perfectParryDuration >= perfectParryLimit)
+            {
+                isPerfectParry = false;
+            }
+        }
     }
 }

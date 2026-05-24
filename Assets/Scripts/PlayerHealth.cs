@@ -19,21 +19,32 @@ public class PlayerHealth : BaseHealth
 
         if (playerBlok.isBlocking)
         {
-            var dmgFinal = Random.Range(attackSo.dmgValue.x, attackSo.dmgValue.y);
-            dmgFinal *= 0.5f;
-            CurHealth -= dmgFinal;
-
-            onGettingAttackFromAttacker?.Invoke(attacker);
-            audioSource.PlayOneShot(blockHitSfx);
-            if (curHealth <= 0)
+            if (playerBlok.isPerfectParry)
             {
-                OnDead();
+                //geting attack when is perfect parry
+                print("perfect parry");
+                
             }else
             {
-                animator.Play("Block Hit", 1 ,0);
+                //geting attack when is blocking
+                var dmgFinal = Random.Range(attackSo.dmgValue.x, attackSo.dmgValue.y);
+                dmgFinal *= 0.5f;
+                CurHealth -= dmgFinal;
+
+                onGettingAttackFromAttacker?.Invoke(attacker);
+                audioSource.PlayOneShot(blockHitSfx);
+                if (curHealth <= 0)
+                {
+                    OnDead();
+                }else
+                {
+                    animator.Play("Block Hit", 1 ,0);
+                }
             }
+            
         }else
         {
+            // getting attack without block
             base.OnTakeDamage(attackSo, attacker);
             if (curHealth <= 0)
             {
