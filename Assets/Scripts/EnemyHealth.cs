@@ -9,12 +9,15 @@ public class EnemyHealth : BaseHealth
     public GameObject enemyCanvas;
     
     Animator animator;
+    
+    EnemyController enemyController;
 
     protected override void Awake()
     {
         base.Awake();
         onChangeHealth.AddListener(UpdateHpBar);
         animator = GetComponent<Animator>();
+        enemyController = GetComponent<EnemyController>();
     }
 
     protected override void Start()
@@ -45,8 +48,9 @@ public class EnemyHealth : BaseHealth
         if(isDead) return;
 
         base.OnDead();
-        EnableEnemyCanva(true);
+        EnableEnemyCanva(false);
         animator.CrossFade("Dead", 0.1f);
+        enemyController.OnEnemyDead();
         StartCoroutine(OnDeadCor());
         IEnumerator OnDeadCor()
         {

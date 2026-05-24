@@ -7,8 +7,16 @@ public class EnemySpawner : MonoBehaviour
     public EnemyController enemyPrefebs;
     public Transform spawnArea;
     public Transform parentMovespotEnemy;
+    public int maxEnemySpawn;
+    public int enemySpawned;
 
-    
+    void Start()
+    {
+        for (int i = 0; i < maxEnemySpawn; i++)
+        {
+            SpawnEnemy();
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,11 +28,19 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
+    public void OnEnemyDead()
+    {
+        enemySpawned--;
+        SpawnEnemy();
+    }
+
     void SpawnEnemy()
     {
+        if(enemySpawned >= maxEnemySpawn) return;
+        enemySpawned++;
         var randomRotation = Quaternion.Euler(0, Random.Range(0 , 360), 0);
         var enemy = Instantiate(enemyPrefebs, GetRandomPosition(), randomRotation);
-        enemy.Init(parentMovespotEnemy);
+        enemy.Init(this ,parentMovespotEnemy);
     }
 
     Vector3 GetRandomPosition()

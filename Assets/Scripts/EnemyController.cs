@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     EnemyHealth enemyHealth;
     public float walkSpeed, runSpeed;
     public Transform parentTargetMovement;
+    EnemySpawner enemySpawner;
 
     public float idleDuration;
     float  idleDurationNeed ;
@@ -27,6 +28,7 @@ public class EnemyController : MonoBehaviour
     public Vector2 randomAttactCooldownDuration;
     public float distanceToStopAttack;
     public float distanceToTarget;
+    
 
     void Awake()
     {
@@ -73,10 +75,14 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void Init(Transform parentTargetMovement)
+    public void Init(EnemySpawner enemySpawner, Transform parentTargetMovement)
     {
+        this.enemySpawner = enemySpawner;
         this.parentTargetMovement = parentTargetMovement;
     }
+
+    public void OnEnemyDead() =>enemySpawner.OnEnemyDead();
+    
 
     void OnIdle()
     {
@@ -164,6 +170,7 @@ public class EnemyController : MonoBehaviour
 
     public void ChangeToAttack()
     {
+        if(enemyHealth.isDead) return;
         // ChangeAttackCooldown();
         target = PlayerManager.Instance.transform;
         aiState = AiState.ATTACKING;
