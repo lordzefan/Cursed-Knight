@@ -714,7 +714,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.47
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -859,6 +859,7 @@ MonoBehaviour:
   onGettingAttackFromAttacker:
     m_PersistentCalls:
       m_Calls: []
+  blockHitSfx: {fileID: 8300000, guid: 046e5c7b47bcd7747ac140f4afc8d426, type: 3}
 --- !u!114 &396503311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,6 +891,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a314263526c57084a9f3786e31284c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &396503315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396503296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea0970ecc7bd12b4fad4bd397579b848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBlocking: 0
 --- !u!1 &408339122
 GameObject:
   m_ObjectHideFlags: 3
@@ -2516,6 +2530,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100128, guid: c8ad62c61a23cb14bb373d286e845b82, type: 3}
       insertIndex: -1
       addedObject: {fileID: 396503313}
+    - targetCorrespondingSourceObject: {fileID: 100128, guid: c8ad62c61a23cb14bb373d286e845b82, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 396503315}
   m_SourcePrefab: {fileID: 100100000, guid: c8ad62c61a23cb14bb373d286e845b82, type: 3}
 --- !u!4 &1147857084 stripped
 Transform:
@@ -3373,19 +3390,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 32d4ab25299de6546a6d95c7780873fa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.4432273
+      value: 0.3999387
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 32d4ab25299de6546a6d95c7780873fa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.570674
+      value: 0.6018041
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 32d4ab25299de6546a6d95c7780873fa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.529573
+      value: 0.560897
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 32d4ab25299de6546a6d95c7780873fa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.44433457
+      value: 0.4040736
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 32d4ab25299de6546a6d95c7780873fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

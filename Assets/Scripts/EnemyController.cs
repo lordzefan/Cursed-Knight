@@ -170,6 +170,7 @@ public class EnemyController : MonoBehaviour
 
     public void ChangeToAttack()
     {
+        if(aiState == AiState.ATTACKING) return;
         if(enemyHealth.isDead) return;
         // ChangeAttackCooldown();
         target = PlayerManager.Instance.transform;

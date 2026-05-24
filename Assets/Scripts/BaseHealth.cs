@@ -18,7 +18,7 @@ public class BaseHealth : MonoBehaviour
     public bool isDead;
     public ParticleSystem bloodVfx;
     public AudioClip hitSfx;
-    AudioSource audioSource;
+    protected AudioSource audioSource;
     public UnityEvent<float, float> onChangeHealth;
     public UnityEvent<BaseAttack> onGettingAttackFromAttacker;
 
