@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour
     public Vector2 randomAttactCooldownDuration;
     public float distanceToStopAttack;
     public float distanceToTarget;
+    public bool isStun;
     
 
     void Awake()
@@ -46,6 +47,7 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         if(enemyHealth.isDead) return;
+        if(isStun) return;
 
         animator.SetFloat("Movement", navMeshAgent.velocity.magnitude, 0.1f, Time.deltaTime );
         switch (aiState)
@@ -82,7 +84,20 @@ public class EnemyController : MonoBehaviour
     }
 
     public void OnEnemyDead() =>enemySpawner.OnEnemyDead();
-    
+    public void OnStunEnemy()
+    {
+        isStun = true;
+        animator.ResetTrigger("Idle");
+        animator.CrossFade("Parried", 0.1f);
+
+        StartCoroutine(OnStunEnemyCor());
+        IEnumerator OnStunEnemyCor()
+        {
+            yield return new WaitForSeconds(5);
+            animator.SetTrigger("Idle");
+            isStun = false;
+        }
+    }
 
     void OnIdle()
     {

@@ -21,6 +21,7 @@ public class PlayerHealth : BaseHealth
         {
             if (playerBlok.isPerfectParry)
             {
+                attacker.GetComponent<EnemyController>().OnStunEnemy();
                 //geting attack when is perfect parry
                 print("perfect parry");
                 
