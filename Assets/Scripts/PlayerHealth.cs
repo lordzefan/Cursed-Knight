@@ -7,6 +7,9 @@ public class PlayerHealth : BaseHealth
     Animator animator;
     PlayerBlok playerBlok;
     public AudioClip blockHitSfx;
+    public ParticleSystem perfectParryVfx;
+    public AudioClip perfectParrySfx;
+    public CameraShakePresetSo perfectParrySo;
     protected override void Awake()
     {
         base.Awake();
@@ -21,6 +24,10 @@ public class PlayerHealth : BaseHealth
         {
             if (playerBlok.isPerfectParry)
             {
+                perfectParryVfx.Play();
+                audioSource.PlayOneShot(perfectParrySfx);
+                MainCamera.Instance.CameraShake(perfectParrySo);
+                animator.Play("Block Hit", 1 ,0);
                 attacker.GetComponent<EnemyController>().OnStunEnemy();
                 //geting attack when is perfect parry
                 print("perfect parry");

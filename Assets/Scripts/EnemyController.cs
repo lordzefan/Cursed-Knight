@@ -29,10 +29,11 @@ public class EnemyController : MonoBehaviour
     public float distanceToStopAttack;
     public float distanceToTarget;
     public bool isStun;
-    
+    EnemyAttack enemyAttack;
 
     void Awake()
     {
+        enemyAttack = GetComponent<EnemyAttack>();
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
@@ -86,6 +87,7 @@ public class EnemyController : MonoBehaviour
     public void OnEnemyDead() =>enemySpawner.OnEnemyDead();
     public void OnStunEnemy()
     {
+        enemyAttack.hitBox.gameObject.SetActive(false);
         isStun = true;
         animator.ResetTrigger("Idle");
         animator.CrossFade("Parried", 0.1f);
