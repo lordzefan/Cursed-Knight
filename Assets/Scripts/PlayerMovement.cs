@@ -15,9 +15,11 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     PlayerAttack playerAttack;
     PlayerHealth playerHealth;
+    PlayerBlok playerBlok;
 
     void Awake()
     {
+        playerBlok = GetComponent<PlayerBlok>();
         playerHealth = GetComponent<PlayerHealth>();
         playerAttack = GetComponent<PlayerAttack>();
         rb = GetComponent<Rigidbody>();
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if(playerHealth.isDead) return;
+        if(playerBlok.isBlocking) return;
        Movement();  
     }
 
