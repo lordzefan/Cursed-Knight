@@ -1603,7 +1603,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 10
   MaxDistance: 100
   Pan2D: 0
@@ -1693,7 +1693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curHealth: 0
-  maxHealth: 100
+  maxHealth: 500
   isDead: 0
   bloodVfx: {fileID: 4184419930354049725}
   hitSfx: {fileID: 8300000, guid: 61571e7d505bdad4fa26fa5c78732b32, type: 3}
@@ -1768,6 +1768,7 @@ MonoBehaviour:
   randomAttactCooldownDuration: {x: 1.5, y: 3}
   distanceToStopAttack: 20
   distanceToTarget: 0
+  isStun: 0
 --- !u!195 &7573284496073309031
 NavMeshAgent:
   m_ObjectHideFlags: 0
