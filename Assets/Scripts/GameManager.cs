@@ -29,8 +29,16 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         if(gameOver)
+        {   
+            print("Game Over");
+            StartCoroutine(WaitForRestart());
+
+        IEnumerator WaitForRestart()
         {
+            yield return new WaitForSeconds(5);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+            
         }
     }
 

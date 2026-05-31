@@ -12,6 +12,7 @@ public class PlayerSkill : MonoBehaviour
     public GameObject hitBox;
     AudioSource audioSource;
     Animator animator;
+    PlayerHealth playerHealth;
     public Image skillCdImage;
 
     public float skillCooldownDuration, skillCooldownDurationNeed;
@@ -19,6 +20,7 @@ public class PlayerSkill : MonoBehaviour
 
     void Awake()
     {
+        playerHealth = GetComponent<PlayerHealth>();
         audioSource = GetComponent<AudioSource>();
         animator =  GetComponent<Animator>();
     }
@@ -27,6 +29,7 @@ public class PlayerSkill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerHealth.isDead) return;
         if(isSkillCooldown) 
         {
             skillCooldownDuration += Time.deltaTime;

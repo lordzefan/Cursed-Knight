@@ -72,5 +72,6 @@ public class PlayerHealth : BaseHealth
         base.OnDead();
         GameManager.Instance.gameOver = true;
         animator.CrossFade("Dead", 0.1f);
+        GameManager.Instance.RestartGame();
     }
 }

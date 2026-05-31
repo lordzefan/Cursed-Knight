@@ -49,6 +49,5 @@ public class BaseHealth : MonoBehaviour
     public virtual void OnDead()
     {
        isDead = true; 
-       print("enemy is dead");
     }
 }
