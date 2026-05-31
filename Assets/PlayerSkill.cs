@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSkill : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class PlayerSkill : MonoBehaviour
     public GameObject hitBox;
     AudioSource audioSource;
     Animator animator;
+    public Image skillCdImage;
+
+    public float skillCooldownDuration, skillCooldownDurationNeed;
+    public bool isSkillCooldown;
 
     void Awake()
     {
@@ -22,9 +27,21 @@ public class PlayerSkill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isSkillCooldown) 
+        {
+            skillCooldownDuration += Time.deltaTime;
+            skillCdImage.fillAmount = skillCooldownDuration/ skillCooldownDurationNeed;
+            if (skillCooldownDuration >= skillCooldownDurationNeed)
+            {
+                isSkillCooldown = false;
+            }
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.CrossFade("Skill Attack", 0.1f);
+            skillCooldownDuration =0;
+            isSkillCooldown = true;
         }
     }
 
